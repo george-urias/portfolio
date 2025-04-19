@@ -6,8 +6,9 @@
   <title>George Urias | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Initial state for fade-in effect */
     body {
-      background: linear-gradient(to bottom, #e0f7fa, #00bcd4);
+      background: linear-gradient(to bottom, #e0f7fa, #00bcd4); /* Gradient background */
       background-attachment: fixed;
       background-size: cover;
       color: #333;
@@ -20,12 +21,34 @@
       opacity: 1;
     }
 
+    .pdf-preview img {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .pdf-preview img:hover {
+      transform: scale(1.05);
+      cursor: zoom-in;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     html {
       scroll-behavior: smooth;
     }
@@ -40,7 +63,6 @@
       top: 0;
       z-index: 10;
     }
-
     nav a {
       margin-left: 1.5rem;
       text-decoration: none;
@@ -50,88 +72,69 @@
 
     .container {
       padding: 2rem;
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
-      background-color: transparent;
+      background-color: transparent; /* Allows gradient to show through */
     }
 
     section {
       padding: 4rem 0;
-      background-color: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(4px);
+      background-color: rgba(255, 255, 255, 0.05); /* Optional glassy background */
+      backdrop-filter: blur(4px); /* Frosted glass effect */
       border-radius: 10px;
       margin-bottom: 2rem;
     }
 
     .hero {
       margin-top: 2rem;
-      text-align: center;
     }
-
     .hero h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
-
     .hero p {
       font-size: 1.2rem;
       line-height: 1.6;
-      max-width: 800px;
-      margin: 1rem auto;
     }
-
     .hero img {
       width: 120px;
       height: 120px;
       object-fit: cover;
       border-radius: 50%;
       object-position: top center;
-      margin-bottom: 1rem;
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    #portfolio {
+      padding: 4rem 2rem;
+      background-color: rgba(255, 255, 255, 0.05); /* Match section styling */
+      border-radius: 10px;
     }
 
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
+    #portfolio h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
 
-    .pdf-preview img,
-    .project-images img {
-      max-width: 300px;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    .project {
+      margin-bottom: 3rem;
     }
 
-    .pdf-preview img:hover,
-    .project-images img:hover {
-      transform: scale(1.05);
-      cursor: zoom-in;
-    }
-
-    .pdf-grid,
     .project-images {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      margin-top: 1.5rem;
+      gap: 1rem;
     }
 
-    #portfolio h2,
-    #experience h2,
-    #certifications h2,
-    #contact h2 {
+    .project-images img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #experience h2 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
-      text-align: center;
     }
 
     .experience-entry {
@@ -148,10 +151,6 @@
       line-height: 1.5;
     }
 
-    .big-text {
-      font-size: 1.25rem;
-    }
-
     footer {
       background: #e0f2ff;
       padding: 1.5rem 2rem;
@@ -164,9 +163,212 @@
       text-decoration: none;
       margin: 0 0.5rem;
     }
+
+    .pdf-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      justify-content: center;
+    }
+
+    .pdf-grid .pdf-preview img {
+      max-width: 240px;
+    }
+	  
+	  .big-text {
+  font-size: 2rem; /* Adjust size here if needed */
+  font-weight: regular; /* Optional, makes it bolder */
+}
+
   </style>
 </head>
 <body>
-  <!-- content will remain unchanged -->
+  <header>
+    <h1>George Urias</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+		<a href="#certifications">Certifications</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="hero" id="about">
+      <img src="images/profilepic.JPG" alt="George Urias Profile Photo" />
+      <h1>Marketing Coordinator</h1>
+      <p>Hi! I'm George Urias — Creative and driven marketing professional with a strong foundation in brand development, visual content creation, and campaign execution. Experienced in designing impactful marketing materials, managing promotional efforts across print and digital platforms, and supporting collaborative projects from concept to completion. Passionate about crafting compelling messages and visuals that resonate with audiences and deliver real results. This portfolio highlights work from my current role and marketing projects from college.</p>
+    </section>
+
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+<h3>Offering Memorandum</h3>
+      <div class="pdf-preview fade-in">
+        <a href="docs/17th ST Santa Ana OM 1.22.25.pdf" target="_blank">
+          <img src="images/OM.PNG" alt="Offering Memorandum Cover" />
+        </a>
+      </div>
+
+      <div class="pdf-preview fade-in">
+        <a href="docs/TRIC OM (2-11-25)-1.pdf" target="_blank">
+          <img src="images/TRIC OM (2-11-25)-1.png" alt="Offering Memorandum Cover" />
+        </a>
+      </div>
+
+      <h3>Sale Aids</h3>
+      <div class="pdf-grid">
+        <div class="pdf-preview fade-in">
+          <a href="docs/opportunity zone timeline.pdf" target="_blank">
+            <img src="images/opportunity zone timeline.png" alt="PDF 1" />
+          </a>
+        </div>
+        <div class="pdf-preview fade-in">
+          <a href="docs/golden oz strategy.pdf" target="_blank">
+            <img src="images/golden oz strategy.png" alt="PDF 2" />
+          </a>
+        </div>
+        <div class="pdf-preview fade-in">
+          <a href="docs/starbucks case study.pdf" target="_blank">
+            <img src="images/starbucks case study.png" alt="PDF 3" />
+          </a>
+        </div>
+      </div>
+
+      <div class="pdf-grid">
+        <div class="pdf-preview fade-in">
+          <a href="docs/tenant profile 2900.pdf" target="_blank">
+            <img src="images/tenant profile 2900.PNG" alt="PDF 4" />
+          </a>
+        </div>
+        <div class="pdf-preview fade-in">
+          <a href="docs/call plan for new listing 7.pdf" target="_blank">
+            <img src="images/call plan for new listing 7.png" alt="PDF 5" />
+          </a>
+        </div>
+        <div class="pdf-preview fade-in">
+          <a href="docs/starbucks exit strategy.pdf" target="_blank">
+            <img src="images/starbucks exit strategy.png" alt="PDF 6" />
+          </a>
+        </div>
+     <h3>Social Posts</h3>
+      <div class="project">
+        <div class="project-images">
+          <img src="images/73B860E9-CDC7-4717-A841-B0556547AC56.jpeg" alt="Royal Printex Postcard Design" />
+          <img src="images/suzie.PNG" alt="Royal Printex Social Post" />
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-images">
+          <img src="images/victory.PNG" alt="SLC Event Flyer" />
+         <h3>Postcards</h3>
+          <img src="images/bluff.PNG" alt="SLC Social Media Post" />
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-images">
+          <img src="images/hoffman listing front.png" alt="Centennial Brochure" />
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-images">
+          <img src="images/hoffman listing back.png" alt="Centennial hoffman" />
+        </div>
+      </div>
+
+      
+      </div>
+    </section>
+	  
+	  <section id="certifications">
+	  <h2>Certifications</h2>
+      <div class="pdf-grid">
+        <div class="pdf-preview fade-in">
+          <a href="docs/CertificateOfCompletion_Google Analytics Essential Training (1).pdf" target="_blank">
+            <img src="images/CertificateOfCompletion_Google Analytics Essential Training (1).jpg" alt="PDF 1" />
+          </a>
+        </div>
+        <div class="pdf-preview fade-in">
+          <a href="docs/CertificateOfCompletion_Marketing Copywriting for Social Media (1).pdf" target="_blank">
+            <img src="images/CertificateOfCompletion_Marketing Copywriting for Social Media (1).jpg" alt="PDF 2" />
+          </a>
+        </div>
+        <div class="pdf-preview fade-in">
+          <a href="docs/CertificateOfCompletion_Google Analytics Essential Training (2).pdf" target="_blank">
+            <img src="images/CertificateOfCompletion_Google Analytics Essential Training (2).jpg" alt="PDF 3" />
+          </a>
+        </div>
+      </div>
+
+      <div class="pdf-grid">
+        <div class="pdf-preview fade-in">
+          <a href="docs/CertificateOfCompletion_OMCA Certification for Online Marketing Associate Test Prep (1).pdf" target="_blank">
+            <img src="images/CertificateOfCompletion_OMCA Certification for Online Marketing Associate Test Prep (1).jpg" alt="PDF 4" />
+          </a>
+        </div>
+        <div class="pdf-preview fade-in">
+          <a href="docs/CertificateOfCompletion_SEO Foundations (1).pdf" target="_blank">
+            <img src="images/CertificateOfCompletion_SEO Foundations (1).jpg" alt="PDF 5" />
+          </a>
+        </div>
+        <div class="pdf-preview fade-in">
+          <a href="docs/CertificateOfCompletion_Writing Ad Copy (1).pdf" target="_blank">
+            <img src="images/CertificateOfCompletion_Writing Ad Copy (1).jpg" alt="PDF 6" />
+          </a>
+        </div>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="experience-entry">
+        <h3>Marketing Coordinator – Centennial Advisers</h3>
+        <p class="big-text">Managed property marketing from brochures to email campaigns. Oversaw listing syndication, maintained databases, and supported commercial real estate agents with strategic marketing materials.</p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>Marketing Designer – Royal Printex Inc.</h3>
+        <p>Designed visuals for digital and print media. Led SEO content efforts and contributed to campaign strategies that improved online engagement using Adobe Creative Suite.</p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>Social Media Chair – CSUF Sales Leadership Center</h3>
+        <p>Promoted campus events through custom-designed flyers and coordinated photo and video content for online platforms. Increased campus visibility and student participation.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Feel free to reach out if you’d like to connect or collaborate!</p>
+      <p>Email: <a href="mailto:georgeurias10@gmail.com">georgeurias10@gmail.com</a></p>
+      <p>LinkedIn: <a href="http://linkedin.com/in/george-urias" target="_blank">linkedin.com/in/george-urias</a></p>
+    </section>
+  </div>
+
+		  
+  <footer>
+    <p>&copy; 2025 George Urias</p>
+  </footer>
+
+  <script>
+    // Add 'loaded' class to body after the page has fully loaded
+    window.addEventListener('load', function() {
+      document.body.classList.add('loaded');
+    });
+
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    faders.forEach(fadeEl => observer.observe(fadeEl));
+  </script>
 </body>
 </html>
